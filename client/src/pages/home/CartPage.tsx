@@ -5,7 +5,7 @@ import ErrorMessage from "../../components/interface/ErrorMessage";
 import { shopSelector } from "../../redux/shopSlice";
 import { useTypedSelector } from "../../redux/store";
 import { LoginService, ShopService } from "../../services";
-import { useHistory } from "react-router";
+import { Redirect, useHistory } from "react-router";
 import classes from "../../assets/styles/Cart.module.scss";
 
 const CartPage = () => {
@@ -28,65 +28,74 @@ const CartPage = () => {
 
   return (
     <>
-      <Navbar />
-      <div className={classes.CartPage}>
-        <h2>Your Cart</h2>
-        <div className={classes.CartContainer}>
-          {cart && cart.length > 0 ? (
-            cart.map((cart, index) => (
-              <Fragment key={index}>
-                <CartItem cart={cart} />
-              </Fragment>
-            ))
-          ) : (
-            <h3 style={{ textAlign: "center" }}>Nothing Available in Cart</h3>
-          )}
-        </div>
-        {cart && cart.length > 0 && (
-          <>
-            <h2>Total Sum: ${total}</h2>
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              {!isPurchase ? (
-                <button
-                  onClick={() => setIsPurchase(true)}
-                  className={classes.UpdateBtn}
-                >
-                  Purchase
-                </button>
+      {user ? (
+        <>
+          <Navbar />
+          <div className={classes.CartPage}>
+            <h2>Your Cart</h2>
+            <div className={classes.CartContainer}>
+              {cart && cart.length > 0 ? (
+                cart.map((cart, index) => (
+                  <Fragment key={index}>
+                    <CartItem cart={cart} />
+                  </Fragment>
+                ))
               ) : (
-                <div>
-                  <h3 style={{ textAlign: "center", marginTop: "0" }}>
-                    Are you Sure?
-                  </h3>
-                  <div style={{ display: "flex", justifyContent: "center" }}>
-                    <button
-                      onClick={() => {
-                        setIsPurchase(false);
-                        setError("");
-                      }}
-                      className={classes.RemoveBtn}
-                      style={{ margin: "0 0.5rem" }}
-                    >
-                      No
-                    </button>
-                    <button
-                      onClick={purchaseAll}
-                      className={classes.UpdateBtn}
-                      style={{ margin: "0 0.5rem" }}
-                    >
-                      Yes
-                    </button>
-                  </div>
-                  <div>
-                    <ErrorMessage message={error} />
-                  </div>
-                </div>
+                <h3 style={{ textAlign: "center" }}>
+                  Nothing Available in Cart
+                </h3>
               )}
             </div>
-          </>
-        )}
-      </div>
-      ;
+            {cart && cart.length > 0 && (
+              <>
+                <h2>Total Sum: ${total}</h2>
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  {!isPurchase ? (
+                    <button
+                      onClick={() => setIsPurchase(true)}
+                      className={classes.UpdateBtn}
+                    >
+                      Purchase
+                    </button>
+                  ) : (
+                    <div>
+                      <h3 style={{ textAlign: "center", marginTop: "0" }}>
+                        Are you Sure?
+                      </h3>
+                      <div
+                        style={{ display: "flex", justifyContent: "center" }}
+                      >
+                        <button
+                          onClick={() => {
+                            setIsPurchase(false);
+                            setError("");
+                          }}
+                          className={classes.RemoveBtn}
+                          style={{ margin: "0 0.5rem" }}
+                        >
+                          No
+                        </button>
+                        <button
+                          onClick={purchaseAll}
+                          className={classes.UpdateBtn}
+                          style={{ margin: "0 0.5rem" }}
+                        >
+                          Yes
+                        </button>
+                      </div>
+                      <div>
+                        <ErrorMessage message={error} />
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </>
+            )}
+          </div>
+        </>
+      ) : (
+        <Redirect to="/" />
+      )}
     </>
   );
 };

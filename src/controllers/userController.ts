@@ -102,7 +102,7 @@ export const loginUser = async (
         res.status(422).send({ msg: "Email isn't in Database" });
       }
     } catch (err) {
-      res.status(500).send({ msg: "Cannot Log into this Account" });
+      res.status(500).send({ msg: "Error Logging into this Account" });
     }
   }
 };

@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
-dotenv.config({ path: "../../Ecommerce/server/.env" });
+dotenv.config({ path: "../Ecommerce/.env" });
 
 const secret: any = process.env.JWT_SECRET;
 

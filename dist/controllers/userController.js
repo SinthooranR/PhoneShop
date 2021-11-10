@@ -86,7 +86,7 @@ const loginUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function
             }
         }
         catch (err) {
-            res.status(500).send({ msg: "Cannot Log into this Account" });
+            res.status(500).send({ msg: "Error Logging into this Account" });
         }
     }
 });

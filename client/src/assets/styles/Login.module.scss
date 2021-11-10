@@ -1,9 +1,9 @@
 .Login {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
 
   .MainPanel {
-    padding-top: 7.5rem;
+    padding: 6.5rem 0;
     display: flex;
     justify-content: center;
     -webkit-animation: fadein 3.5s;
@@ -171,8 +171,8 @@
 @media only screen and (max-device-width: 1000px) {
   .Login {
     .MainPanel {
-      height: 85%;
-      padding-top: 1.5rem;
+      // height: 85%;
+      // padding-top: 1.5rem;
     }
   }
 }
