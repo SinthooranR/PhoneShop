@@ -19,7 +19,7 @@ const Navbar = () => {
         style={{ cursor: "pointer" }}
         onClick={() => history.push("/products")}
       >
-        {user?.name}
+        {user ? user?.name : "Home"}
       </h2>
       <div>
         <BsCartFill onClick={() => history.push("/cart")} />

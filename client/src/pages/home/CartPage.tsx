@@ -49,7 +49,13 @@ const CartPage = () => {
             {cart && cart.length > 0 && (
               <>
                 <h2>Total Sum: ${total}</h2>
-                <div style={{ display: "flex", justifyContent: "center" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    padding: "1rem 0 2rem 0",
+                  }}
+                >
                   {!isPurchase ? (
                     <button
                       onClick={() => setIsPurchase(true)}
@@ -63,7 +69,10 @@ const CartPage = () => {
                         Are you Sure?
                       </h3>
                       <div
-                        style={{ display: "flex", justifyContent: "center" }}
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                        }}
                       >
                         <button
                           onClick={() => {
