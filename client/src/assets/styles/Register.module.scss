@@ -1,0 +1,27 @@
+.Register {
+  height: 100vh;
+  width: 100%;
+  h2 {
+    margin: 0;
+    text-align: center;
+    padding-top: 10rem;
+  }
+  .MainPanel {
+    padding-top: 7.5rem;
+    display: flex;
+    justify-content: center;
+
+    .Grid {
+      display: inline-grid;
+      border-radius: 15px;
+      grid-template-columns: auto auto auto;
+      background-color: #171717;
+      img {
+        height: 45rem;
+        width: 35rem;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+      }
+    }
+  }
+}

@@ -1,0 +1,178 @@
+.Login {
+  height: 100vh;
+  width: 100%;
+
+  .MainPanel {
+    padding-top: 7.5rem;
+    display: flex;
+    justify-content: center;
+    -webkit-animation: fadein 3.5s;
+    -moz-animation: fadein 3.5s;
+    -ms-animation: fadein 3.5s;
+    -o-animation: fadein 3.5s;
+    animation: fadein 3.5s;
+    height: 42.5rem;
+
+    .Grid {
+      display: flex;
+      justify-content: center;
+      img {
+        height: 100%;
+        width: 30rem;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+      }
+    }
+  }
+}
+
+.LoginForm {
+  width: 35rem;
+  background-color: #171717;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  .FormComponent {
+    display: flex;
+    justify-content: center;
+    form {
+      width: 20rem;
+      .ButtonArea {
+        display: flex;
+        justify-content: center;
+        button {
+          padding: 1rem 4rem;
+          cursor: pointer;
+          font-size: 1.15rem;
+          border-radius: 10px;
+          outline: none;
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+.LoginHeader {
+  margin: 0;
+  text-align: center;
+  padding-top: 10rem;
+}
+
+.RegisterHeader {
+  margin: 0;
+  text-align: center;
+  padding-top: 7.5rem;
+}
+
+.Redirect {
+  min-height: 100vh;
+  height: 100%;
+  // padding-top: 10rem;\
+  .Card {
+    display: flex;
+    justify-content: center;
+    padding-top: 10rem;
+
+    div {
+      padding: 5rem 5rem;
+      background-color: #171717;
+      width: 25rem;
+      border-radius: 15px;
+      h3,
+      p {
+        margin: 0;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .Login {
+    img {
+      display: none;
+    }
+  }
+  .LoginForm {
+    width: 45rem;
+    border-radius: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .LoginForm {
+    width: 35rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .LoginForm {
+    width: 25rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .LoginForm {
+    width: 25rem;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .LoginForm {
+    width: 20rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .LoginForm {
+    width: 18.5rem;
+  }
+}
+
+@media only screen and (max-device-width: 1000px) {
+  .Login {
+    .MainPanel {
+      height: 85%;
+      padding-top: 1.5rem;
+    }
+  }
+}

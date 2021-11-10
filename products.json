@@ -1,0 +1,183 @@
+[
+  {
+    "productName": "iPhone 13 Pro Max",
+    "productBrand": "Apple",
+    "productImage": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-pro-max.jpg",
+    "price": 1459.99,
+    "stock": 50,
+    "specifications": {
+      "storage": 128,
+      "ram": 50,
+      "battery": "Li-Ion 4352 mAh",
+      "os": "iOS 15",
+      "size": "6.7",
+      "resolution": "1284 x 2778"
+    }
+  },
+  {
+    "productName": "Samsung Galaxy S21 Ultra 5G",
+    "productBrand": "Samsung",
+    "productImage": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s21-ultra-5g-.jpg",
+    "price": 1499.99,
+    "stock": 50,
+    "specifications": {
+      "storage": 128,
+      "ram": 12,
+      "battery": "Li-Ion 5000 mAh",
+      "os": "Android 11, One UI 3.1",
+      "size": "6.8",
+      "resolution": "1440 x 3200"
+    }
+  },
+  {
+    "productName": "OnePlus 9 Pro",
+    "productBrand": "OnePlus",
+    "productImage": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-9-pro-.jpg",
+    "price": 1019.99,
+    "stock": 50,
+    "specifications": {
+      "storage": 256,
+      "ram": 12,
+      "battery": "Li-Po 4500 mAh",
+      "os": "Android 11, OxygenOS 11.2.7.7",
+      "size": "6.7",
+      "resolution": "1440 x 3216"
+    }
+  },
+
+  {
+    "productName": "OnePlus 9",
+    "productBrand": "OnePlus",
+    "productImage": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-9-.jpg",
+    "price": 833.18,
+    "stock": 50,
+    "specifications": {
+      "storage": 256,
+      "ram": 12,
+      "battery": "Li-Po 4500 mAh",
+      "os": "Android 11, OxygenOS 11.2.7.7",
+      "size": "6.55",
+      "resolution": "1080 x 2400"
+    }
+  },
+  {
+    "productName": "OnePlus 8 Pro",
+    "productBrand": "OnePlus",
+    "productImage": "https://fdn2.gsmarena.com/vv/bigpic/oneplus-8-pro.jpg",
+    "price": 1415.0,
+    "stock": 50,
+    "specifications": {
+      "storage": 256,
+      "ram": 12,
+      "battery": "Li-Ion 4500 mAh",
+      "os": "Android 10, OxygenOS 11",
+      "size": "6.78",
+      "resolution": "1440 x 3168"
+    }
+  },
+  {
+    "productName": "iPhone 13",
+    "productBrand": "Apple",
+    "productImage": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13.jpg",
+    "price": 799.99,
+    "stock": 15,
+    "specifications": {
+      "storage": 128,
+      "ram": 4,
+      "battery": "Li-Ion 3240 mAh",
+      "os": "iOS 15",
+      "size": "6.1",
+      "resolution": "1170 x 2532"
+    }
+  },
+  {
+    "productName": "Samsung Galaxy A52s 5G",
+    "productBrand": "Samsung",
+    "productImage": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a52s-5g.jpg",
+    "price": 949.69,
+    "stock": 50,
+    "specifications": {
+      "storage": 256,
+      "ram": 8,
+      "battery": "Li-Po 4500 mAh",
+      "os": "Android 11, One UI 3.1",
+      "size": "6.5",
+      "resolution": "1080 x 2400"
+    }
+  },
+  {
+    "productName": "Nokia 3310 (2017)",
+    "productBrand": "Nokia",
+    "productImage": "https://fdn2.gsmarena.com/vv/bigpic/nokia-3310-2017-orig.jpg",
+    "price": 999999999.99,
+    "stock": 1,
+    "specifications": {
+      "storage": 0.128,
+      "ram": 0.016,
+      "battery": "Li-Ion 1200 mAh",
+      "os": "Nokia Series 30+",
+      "size": "2.4",
+      "resolution": "240 x 320"
+    }
+  },
+  {
+    "productName": "Pixel 6 Pro",
+    "productBrand": "Google",
+    "productImage": "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-6-pro.jpg",
+    "price": 999.99,
+    "stock": 50,
+    "specifications": {
+      "storage": 256,
+      "ram": 12,
+      "battery": "Li-Po 5003 mAh",
+      "os": "Android 12",
+      "size": "6.71",
+      "resolution": "1440 x 3120"
+    }
+  },
+  {
+    "productName": "Pixel 5",
+    "productBrand": "Google",
+    "productImage": "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-5-5g.jpg",
+    "price": 629.99,
+    "stock": 50,
+    "specifications": {
+      "storage": 128,
+      "ram": 8,
+      "battery": "Li-Po 4080 mAh",
+      "os": "Android 11",
+      "size": "6.0",
+      "resolution": "1080 x 2340"
+    }
+  },
+  {
+    "productName": "Pixel 4a",
+    "productBrand": "Google",
+    "productImage": "https://fdn2.gsmarena.com/vv/bigpic/google-pixel-4a.jpg",
+    "price": 349.99,
+    "stock": 50,
+    "specifications": {
+      "storage": 128,
+      "ram": 6,
+      "battery": "Li-Po 3140 mAh",
+      "os": "Android 10",
+      "size": "5.81",
+      "resolution": "1080 x 2340"
+    }
+  },
+  {
+    "productName": "Samsung Galaxy Z Fold3 5G",
+    "productBrand": "Samsung",
+    "productImage": "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-fold3-5g.jpg",
+    "price": 2269.0,
+    "stock": 50,
+    "specifications": {
+      "storage": 256,
+      "ram": 12,
+      "battery": "Li-Po 4400 mAh",
+      "os": "Android 11, One UI 3.1.1",
+      "size": "6.2",
+      "resolution": "832 x 2268"
+    }
+  }
+]

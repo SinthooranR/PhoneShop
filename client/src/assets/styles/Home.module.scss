@@ -1,0 +1,108 @@
+.Home {
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 5rem;
+  .Reminder {
+    margin-top: 3rem;
+    height: 5rem;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    div {
+      background-color: #c9d6ff;
+      width: 50%;
+      border-radius: 2rem;
+      p {
+        color: black;
+        margin: 0;
+        padding: 2rem 0rem;
+      }
+    }
+  }
+  .ProductContainer {
+    display: flex;
+    justify-content: center;
+
+    .ProductGrid {
+      margin-top: 5rem;
+      padding-bottom: 5rem;
+      display: grid;
+      grid-gap: 5rem;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+.Product {
+  width: 17.5rem;
+  background-color: #171717;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  img {
+    height: 17.5rem;
+    width: 12.5rem;
+    border-radius: 15px;
+  }
+  button {
+    padding: 0.75rem 2rem;
+    cursor: pointer;
+    font-size: 1.15rem;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    transition: ease-in-out 0.25s;
+  }
+  button:hover {
+    background-color: #0275d8;
+    color: white;
+    transition: ease-in-out 0.25s;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .Home {
+    .ProductContainer {
+      .ProductGrid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .Home {
+    .Reminder {
+      div {
+        width: 75%;
+        p {
+          padding: 1.5rem 0rem;
+        }
+      }
+    }
+    .ProductContainer {
+      .ProductGrid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .Home {
+    .Reminder {
+      div {
+        width: 95%;
+        p {
+          padding: 1rem 0rem;
+        }
+      }
+    }
+    .ProductContainer {
+      .ProductGrid {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+  }
+}

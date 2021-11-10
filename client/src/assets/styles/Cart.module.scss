@@ -1,0 +1,97 @@
+.CartPage {
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 3.5rem;
+  h2 {
+    padding-top: 2.5rem;
+    text-align: center;
+  }
+
+  .CartContainer {
+    padding: 0rem 5rem;
+  }
+  button {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    transition: ease-in-out 0.25s;
+  }
+
+  .UpdateBtn {
+    background-color: #0275d8;
+    color: white;
+    padding: 0.75rem 2rem;
+  }
+
+  .RemoveBtn {
+    background-color: #ff416c;
+    color: white;
+    padding: 0.75rem 2rem;
+  }
+}
+
+.CartItem {
+  background-color: #171717;
+  border-radius: 25px;
+  padding: 1.5rem 2.5rem;
+  margin-top: 1rem;
+  .ItemContainer {
+    display: flex;
+    justify-content: space-evenly;
+    img {
+      border-radius: 1rem;
+    }
+    .InfoDiv {
+      width: 25%;
+      padding-top: 1.5rem;
+    }
+    .QuantityDiv {
+      padding-top: 4rem;
+      span {
+        display: flex;
+        justify-content: center;
+        h3 {
+          padding-top: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 649px) {
+  .CartPage {
+    .CartContainer {
+      padding: 0rem 2.5rem;
+    }
+  }
+
+  .CartItem {
+    padding: 1.5rem 0rem;
+    .ItemContainer {
+      display: block;
+      text-align: center;
+      img {
+        display: none;
+      }
+      .InfoDiv {
+        width: 100%;
+      }
+
+      .QuantityDiv {
+        padding-top: 0;
+        padding-bottom: 1rem;
+      }
+      .UpdateBtn,
+      .RemoveBtn {
+        margin-top: 0;
+      }
+      button {
+        padding: 0.25rem 1rem;
+        font-size: 1rem;
+      }
+    }
+  }
+}

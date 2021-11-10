@@ -1,0 +1,122 @@
+.ProductPage {
+  min-height: 100vh;
+  padding-top: 3.5rem;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  text-align: center;
+  .PageContainer {
+    height: 50rem;
+    border-radius: 5rem;
+    background-color: #171717;
+    h1 {
+      width: 100%;
+      padding: 1.5rem 0;
+      margin: 0;
+      text-align: center;
+    }
+    .Info {
+      display: flex;
+      justify-content: center;
+      .InfoGrid {
+        display: grid;
+        grid-gap: 15rem;
+        grid-template-columns: repeat(2, 1fr);
+        .Details {
+          img {
+            height: 30rem;
+            border-radius: 35px;
+          }
+        }
+        .Specifications {
+          .ButtonArea {
+            padding-top: 2.5rem;
+          }
+        }
+      }
+    }
+  }
+  button {
+    padding: 0.75rem 2rem;
+    margin: 0 0.5rem;
+    cursor: pointer;
+    font-size: 1.15rem;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+  }
+}
+
+@media screen and (max-width: 1245px) {
+  .ProductPage {
+    .PageContainer {
+      .Info {
+        .InfoGrid {
+          grid-gap: 0rem;
+          .Details {
+            img {
+              height: 30rem;
+              border-radius: 35px;
+            }
+          }
+          .Specifications {
+            hr {
+              width: 50%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .ProductPage {
+    padding-bottom: 5rem;
+    .PageContainer {
+      height: inherit;
+      margin-top: 2.5rem;
+      .Info {
+        padding: 2.5rem 0;
+        .InfoGrid {
+          grid-template-columns: repeat(1, 1fr);
+          grid-gap: 0rem;
+          .Details {
+            img {
+              height: 30rem;
+              border-radius: 35px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .InfoGrid {
+    .Details {
+      img {
+        height: 30rem;
+        border-radius: 35px;
+        width: 18.5rem;
+      }
+    }
+    button {
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .InfoGrid {
+    .Details {
+      img {
+        height: 20rem;
+        width: 15rem;
+      }
+    }
+  }
+}
