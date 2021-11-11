@@ -24,6 +24,7 @@ export const addBilling = async (
     await user?.save();
   } catch (err) {
     res.status(500).send({ msg: "Failed to grab User" });
+    return next();
   }
   res.status(201).json({ account: user });
 };

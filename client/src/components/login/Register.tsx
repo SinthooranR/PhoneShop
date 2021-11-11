@@ -23,10 +23,6 @@ const Register = ({ registerCallback }: RegisterProps) => {
   const password = useRef({});
   password.current = watch("password", "");
 
-  const submitHandler = handleSubmit((formData) => {
-    console.log(formData);
-  });
-
   const [error, setError] = useState("");
   const [isEmail, setIsEmail] = useState(false);
 
@@ -54,11 +50,16 @@ const Register = ({ registerCallback }: RegisterProps) => {
     registerCallback(false);
   };
 
+  const cancelForm = () => {
+    setError("");
+    setIsEmail(false);
+  };
+
   return (
     <div className={classes.LoginForm}>
       <h2 className={classes.RegisterHeader}>Register</h2>
       <div className={classes.FormComponent}>
-        <form onSubmit={submitHandler}>
+        <form onSubmit={registerHandler} onReset={cancelForm}>
           {!isEmail ? (
             <>
               <FormInput
@@ -111,7 +112,21 @@ const Register = ({ registerCallback }: RegisterProps) => {
             {!isEmail ? (
               <button onClick={submitEmail}>Continue</button>
             ) : (
-              <button onClick={registerHandler}>Submit</button>
+              <>
+                <button type="reset" style={{ marginRight: "0.5rem" }}>
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  style={{
+                    marginLeft: "0.5rem",
+                    backgroundColor: "#0275d8",
+                    color: "white",
+                  }}
+                >
+                  Submit
+                </button>
+              </>
             )}
           </div>
           <div>

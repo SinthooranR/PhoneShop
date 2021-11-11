@@ -23,6 +23,7 @@ const registerUser = (req, res, next) => __awaiter(void 0, void 0, void 0, funct
     let validateError = (0, express_validator_1.validationResult)(req);
     if (!validateError.isEmpty()) {
         res.status(422).json({ errors: validateError.array() });
+        return next();
     }
     else {
         //Checks if a user exists in the databasxxe
@@ -33,10 +34,12 @@ const registerUser = (req, res, next) => __awaiter(void 0, void 0, void 0, funct
         }
         catch (err) {
             res.status(500).send({ err: err, msg: "Cannot Access Database" });
+            return next();
         }
         // checks if user exists already
         if (existingUser) {
             res.status(500).send({ msg: "User Already Exists" });
+            return next();
         }
         const hashedPassword = yield bcryptjs_1.default.hash(password, 12);
         //Setup for the new User created
@@ -55,6 +58,7 @@ const registerUser = (req, res, next) => __awaiter(void 0, void 0, void 0, funct
         }
         catch (err) {
             res.status(500).send({ msg: "Cannot Register the User" });
+            return next();
         }
     }
 });
@@ -77,16 +81,19 @@ const loginUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function
                 const passwordCompare = yield bcryptjs_1.default.compare(password, existingUser.password);
                 if (!passwordCompare) {
                     res.status(422).send({ msg: "Password is Incorrect" });
+                    return next();
                 }
                 token = (0, generateToken_1.tokenGen)(existingUser);
                 res.status(201).json(Object.assign(Object.assign({ token }, existingUser._doc), { message: "Logged In" }));
             }
             else {
                 res.status(422).send({ msg: "Email isn't in Database" });
+                return next();
             }
         }
         catch (err) {
             res.status(500).send({ msg: "Error Logging into this Account" });
+            return next();
         }
     }
 });
@@ -104,6 +111,7 @@ const getUser = (req, res, next) => __awaiter(void 0, void 0, void 0, function* 
     }
     catch (err) {
         res.status(500).send({ msg: "Cannot find the User, Please Try Later" });
+        return next();
     }
 });
 exports.getUser = getUser;

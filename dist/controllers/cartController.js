@@ -22,6 +22,7 @@ const addProductToCart = (req, res, next) => __awaiter(void 0, void 0, void 0, f
     let validateError = (0, express_validator_1.validationResult)(req);
     if (!validateError.isEmpty()) {
         res.status(422).json({ errors: validateError.array() });
+        return next();
     }
     else {
         let user;
@@ -32,6 +33,7 @@ const addProductToCart = (req, res, next) => __awaiter(void 0, void 0, void 0, f
         }
         catch (err) {
             res.status(500).send({ err: err, msg: "Cannot find this User" });
+            return next();
         }
         try {
             product = yield productSchema_1.default.findOne({ _id: productId });
@@ -39,6 +41,7 @@ const addProductToCart = (req, res, next) => __awaiter(void 0, void 0, void 0, f
         }
         catch (err) {
             res.status(500).send({ err: err, msg: "Cannot find this Product" });
+            return next();
         }
         let totalPrice = Number(product === null || product === void 0 ? void 0 : product.price) * Number(quantity);
         let newItem = new cartSchema_1.default({
@@ -71,6 +74,7 @@ const addProductToCart = (req, res, next) => __awaiter(void 0, void 0, void 0, f
         }
         catch (err) {
             res.status(500).send({ msg: "Failed to Add to Cart" });
+            return next();
         }
         res.status(201).json({ cart: cart ? cart : newItem, product: product });
     }
@@ -111,6 +115,7 @@ const updateCart = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
     }
     catch (err) {
         res.status(500).send({ msg: "Cannot find this Product in Cart" });
+        return next();
     }
     res.status(201).json({ cartItem: cartItem, product: product });
 });
@@ -124,12 +129,14 @@ const getCartByUserId = (req, res, next) => __awaiter(void 0, void 0, void 0, fu
     }
     catch (err) {
         res.status(500).send({ msg: "Failed to find User" });
+        return next();
     }
     if (cart) {
         totalSum = cart["cart"].reduce((a, { totalPrice }) => a + totalPrice, 0);
     }
     if (!cart) {
         res.status(500).send({ msg: "Failed to find Cart" });
+        return next();
     }
     res.status(201).json({ cart: cart.cart, totalSum: totalSum });
 });
@@ -141,9 +148,11 @@ const getAllProducts = (req, res, next) => __awaiter(void 0, void 0, void 0, fun
     }
     catch (err) {
         res.status(500).send({ msg: "Failed to retrieve Products" });
+        return next();
     }
     if (!products) {
         res.status(500).send({ msg: "Failed to retrieve Cart" });
+        return next();
     }
     res.status(201).json({ products: products });
 });
@@ -168,17 +177,20 @@ const purchaseCart = (req, res, next) => __awaiter(void 0, void 0, void 0, funct
                 }
                 else {
                     res.status(422).send({ msg: "Insufficient Balance" });
+                    return next();
                 }
             }
             else {
                 res
                     .status(422)
                     .send({ msg: "Please finish the Shipping Information in Profile" });
+                return next();
             }
         }
     }
     catch (err) {
         res.status(500).send({ msg: "Failed to Add to Cart" });
+        return next();
     }
     res.status(201).json({ user: user });
 });

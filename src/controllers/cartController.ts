@@ -16,6 +16,7 @@ export const addProductToCart = async (
 
   if (!validateError.isEmpty()) {
     res.status(422).json({ errors: validateError.array() });
+    return next();
   } else {
     let user;
     let product;
@@ -25,6 +26,7 @@ export const addProductToCart = async (
       user = await UserSchema.findById(userId);
     } catch (err) {
       res.status(500).send({ err: err, msg: "Cannot find this User" });
+      return next();
     }
 
     try {
@@ -32,6 +34,7 @@ export const addProductToCart = async (
       cart = await CartSchema.findOne({ productId: productId, userId: userId });
     } catch (err) {
       res.status(500).send({ err: err, msg: "Cannot find this Product" });
+      return next();
     }
 
     let totalPrice: Number = Number(product?.price) * Number(quantity);
@@ -64,6 +67,7 @@ export const addProductToCart = async (
       }
     } catch (err) {
       res.status(500).send({ msg: "Failed to Add to Cart" });
+      return next();
     }
     res.status(201).json({ cart: cart ? cart : newItem, product: product });
   }
@@ -106,6 +110,7 @@ export const updateCart = async (
     }
   } catch (err) {
     res.status(500).send({ msg: "Cannot find this Product in Cart" });
+    return next();
   }
 
   res.status(201).json({ cartItem: cartItem, product: product });
@@ -124,6 +129,7 @@ export const getCartByUserId = async (
     cart = await UserSchema.findById(userId).populate("cart");
   } catch (err) {
     res.status(500).send({ msg: "Failed to find User" });
+    return next();
   }
 
   if (cart) {
@@ -135,6 +141,7 @@ export const getCartByUserId = async (
 
   if (!cart) {
     res.status(500).send({ msg: "Failed to find Cart" });
+    return next();
   }
 
   res.status(201).json({ cart: cart.cart, totalSum: totalSum });
@@ -150,10 +157,12 @@ export const getAllProducts = async (
     products = await ProductSchema.find();
   } catch (err) {
     res.status(500).send({ msg: "Failed to retrieve Products" });
+    return next();
   }
 
   if (!products) {
     res.status(500).send({ msg: "Failed to retrieve Cart" });
+    return next();
   }
 
   res.status(201).json({ products: products });
@@ -187,15 +196,18 @@ export const purchaseCart = async (
           await user.save();
         } else {
           res.status(422).send({ msg: "Insufficient Balance" });
+          return next();
         }
       } else {
         res
           .status(422)
           .send({ msg: "Please finish the Shipping Information in Profile" });
+        return next();
       }
     }
   } catch (err) {
     res.status(500).send({ msg: "Failed to Add to Cart" });
+    return next();
   }
 
   res.status(201).json({ user: user });

@@ -40,7 +40,7 @@
         display: flex;
         justify-content: center;
         button {
-          padding: 1rem 4rem;
+          padding: 0.75rem 3rem;
           cursor: pointer;
           font-size: 1.15rem;
           border-radius: 10px;
@@ -67,7 +67,6 @@
 .Redirect {
   min-height: 100vh;
   height: 100%;
-  // padding-top: 10rem;\
   .Card {
     display: flex;
     justify-content: center;
@@ -165,14 +164,5 @@
 @media screen and (max-width: 320px) {
   .LoginForm {
     width: 18.5rem;
-  }
-}
-
-@media only screen and (max-device-width: 1000px) {
-  .Login {
-    .MainPanel {
-      // height: 85%;
-      // padding-top: 1.5rem;
-    }
   }
 }

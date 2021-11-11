@@ -33,6 +33,7 @@ const addBilling = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
     }
     catch (err) {
         res.status(500).send({ msg: "Failed to grab User" });
+        return next();
     }
     res.status(201).json({ account: user });
 });

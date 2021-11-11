@@ -43,11 +43,16 @@ const Login = ({ loginCallback }: LoginProps) => {
     loginCallback(true);
   };
 
+  const cancelForm = () => {
+    setError("");
+    setIsEmail(false);
+  };
+
   return (
     <div className={classes.LoginForm}>
       <h2 className={classes.LoginHeader}>Login</h2>
       <div className={classes.FormComponent}>
-        <form onSubmit={loginHandler}>
+        <form onSubmit={loginHandler} onReset={cancelForm}>
           {!isEmail ? (
             <FormInput
               register={register}
@@ -76,7 +81,21 @@ const Login = ({ loginCallback }: LoginProps) => {
             {!isEmail ? (
               <button onClick={submitEmail}>Continue</button>
             ) : (
-              <button onClick={loginHandler}>Submit</button>
+              <>
+                <button type="reset" style={{ marginRight: "0.5rem" }}>
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  style={{
+                    marginLeft: "0.5rem",
+                    backgroundColor: "#0275d8",
+                    color: "white",
+                  }}
+                >
+                  Submit
+                </button>
+              </>
             )}
           </div>
           <div>
@@ -87,7 +106,7 @@ const Login = ({ loginCallback }: LoginProps) => {
             style={{ textAlign: "center", cursor: "pointer" }}
             onClick={changeToReg}
           >
-            Dont have an account? Register
+            Dont have an Account? Please Register.
           </p>
         </form>
       </div>

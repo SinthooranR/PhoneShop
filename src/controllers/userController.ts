@@ -18,6 +18,7 @@ export const registerUser = async (
 
   if (!validateError.isEmpty()) {
     res.status(422).json({ errors: validateError.array() });
+    return next();
   } else {
     //Checks if a user exists in the databasxxe
     let existingUser;
@@ -27,11 +28,13 @@ export const registerUser = async (
       existingUser = await UserSchema.findOne({ email: email });
     } catch (err) {
       res.status(500).send({ err: err, msg: "Cannot Access Database" });
+      return next();
     }
 
     // checks if user exists already
     if (existingUser) {
       res.status(500).send({ msg: "User Already Exists" });
+      return next();
     }
 
     const hashedPassword = await bcrypt.hash(password, 12);
@@ -57,6 +60,7 @@ export const registerUser = async (
       });
     } catch (err) {
       res.status(500).send({ msg: "Cannot Register the User" });
+      return next();
     }
   }
 };
@@ -90,6 +94,7 @@ export const loginUser = async (
 
         if (!passwordCompare) {
           res.status(422).send({ msg: "Password is Incorrect" });
+          return next();
         }
 
         token = tokenGen(existingUser);
@@ -100,9 +105,11 @@ export const loginUser = async (
         });
       } else {
         res.status(422).send({ msg: "Email isn't in Database" });
+        return next();
       }
     } catch (err) {
       res.status(500).send({ msg: "Error Logging into this Account" });
+      return next();
     }
   }
 };
@@ -123,5 +130,6 @@ export const getUser = async (
     }
   } catch (err) {
     res.status(500).send({ msg: "Cannot find the User, Please Try Later" });
+    return next();
   }
 };
